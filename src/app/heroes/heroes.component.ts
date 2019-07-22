@@ -11,14 +11,13 @@ import {HEROES} from '../mock-heroes';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
-  selectedHero: Hero;
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
+
   constructor(private heroService: HeroService) { }
+
   ngOnInit() { // 라이프 사이클 constructor는 쓰면 안됌.
     this.getHeroes();
   }
+
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
